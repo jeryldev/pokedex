@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ pokemons }) => {
+const CardsList = ({ pokemons }) => {
+  console.log('Pokemons:::', pokemons);
   return (
     <div>
       {pokemons.map((pokemon, index) => {
@@ -11,4 +12,4 @@ const CardList = ({ pokemons }) => {
   );
 };
 
-export default CardList;
+export default CardsList;

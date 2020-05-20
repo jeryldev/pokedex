@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import { useFetch } from '../hooks/useFetch';
+import CardsList from '../components/CardsList';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 function App() {
   const url = 'https://pokeapi.co/api/v2/pokemon/';
@@ -10,6 +12,10 @@ function App() {
     <div className='App'>
       <h1>Hello World!</h1>
       <h3>{isLoading ? 'Loading....' : data.count}</h3>
+      {isLoading ? 'Loading....' : <CardsList pokemons={data.results} />}
+      {/* <ErrorBoundary>
+        // <CardsList pokemons={data.results} />
+      </ErrorBoundary> */}
     </div>
   );
 }

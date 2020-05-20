@@ -17,7 +17,7 @@ export const useFetch = (url) => {
         const resp = await fetch(url);
         const data = await resp.json();
 
-        console.log('data::', data);
+        console.log('data::', data.results);
         return setCurrentState({ data: data, isLoading: false });
       };
 
