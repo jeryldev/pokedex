@@ -12,10 +12,13 @@ function App() {
     <div className='App'>
       <h1>Hello World!</h1>
       <h3>{isLoading ? 'Loading....' : data.count}</h3>
-      {isLoading ? 'Loading....' : <CardsList pokemons={data.results} />}
-      {/* <ErrorBoundary>
-        // <CardsList pokemons={data.results} />
-      </ErrorBoundary> */}
+      <ErrorBoundary>
+        {isLoading ? (
+          'Loading....'
+        ) : (
+          <CardsList pokemons={data.results} className='container' />
+        )}
+      </ErrorBoundary>
     </div>
   );
 }
