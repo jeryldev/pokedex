@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { useFetch } from '../hooks/useFetch';
-import CardsList from '../components/CardsList';
+import CardsList from '../components/CardBoxList';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 function App() {
@@ -13,11 +13,7 @@ function App() {
       <h1>Hello World!</h1>
       <h3>{isLoading ? 'Loading....' : data.count}</h3>
       <ErrorBoundary>
-        {isLoading ? (
-          'Loading....'
-        ) : (
-          <CardsList pokemons={data.results} className='container' />
-        )}
+        {isLoading ? 'Loading....' : <CardsList pokemons={data.results} />}
       </ErrorBoundary>
     </div>
   );
