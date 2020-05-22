@@ -4,7 +4,6 @@ import { useFetch } from '../hooks/useFetch';
 import CardsList from '../components/CardBoxList';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -69,10 +68,7 @@ function App() {
   if (isLoading === false) {
     cardGrid = (
       <ErrorBoundary>
-        <CardsList
-          pokemons={data.results}
-          // style={{ 'margin-left': '10px', 'margin-right': '10px' }}
-        />
+        <CardsList pokemons={data.results} />
       </ErrorBoundary>
     );
   }

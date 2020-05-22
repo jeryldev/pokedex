@@ -7,27 +7,39 @@ import { useFetch } from '../hooks/useFetch';
 const CardBox = ({ name, source }) => {
   let { data, isLoading } = useFetch(source);
 
-  return (
-    <div>
-      {isLoading ? (
-        // <Spinner animation='border' variant='success' />
-        console.log('loading...')
-      ) : (
-        <Card className='flexbox'>
-          <Card.Img
-            variant='top'
-            src={data.sprites.front_default}
-            style={{ width: '96px', height: '96px' }}
-          />
-          <Card.Body>
-            <Card.Title>
-              {name.charAt(0).toUpperCase() + name.slice(1)}
-            </Card.Title>
-          </Card.Body>
-        </Card>
-      )}
-    </div>
-  );
+  let cardBoxItem;
+
+  if (isLoading === false) {
+    cardBoxItem = (
+      <Card className='flexbox'>
+        <Card.Img
+          variant='top'
+          src={data.sprites.front_default}
+          style={{ width: '96px', height: '96px' }}
+        />
+        <Card.Body>
+          <Card.Title>
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+          </Card.Title>
+        </Card.Body>
+      </Card>
+    );
+  } else {
+    cardBoxItem = (
+      <Card className='flexbox'>
+        <div style={{ width: '96px', height: '96px' }}>
+          <Spinner animation='border' variant='danger' className='flexbox' />
+        </div>
+        <Card.Body>
+          <Card.Title>
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+          </Card.Title>
+        </Card.Body>
+      </Card>
+    );
+  }
+
+  return <div>{cardBoxItem}</div>;
 };
 
 export default CardBox;
