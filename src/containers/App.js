@@ -4,6 +4,8 @@ import { useFetch } from '../hooks/useFetch';
 import CardsList from '../components/CardBoxList';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 function App() {
@@ -14,14 +16,14 @@ function App() {
 
   if (isLoading === false && data.previous === null) {
     customPaginationButtons = (
-      <div className='container'>
-        <CSSTransitionGroup
-          transitionName='example'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
+      <CSSTransitionGroup
+        transitionName='example'
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <div className='container-box'>
           <Button
             variant='success'
             size='lg'
@@ -30,8 +32,8 @@ function App() {
           >
             Next
           </Button>
-        </CSSTransitionGroup>
-      </div>
+        </div>
+      </CSSTransitionGroup>
     );
   } else if (
     isLoading === false &&
@@ -39,14 +41,14 @@ function App() {
     data.next !== null
   ) {
     customPaginationButtons = (
-      <div className='container'>
-        <CSSTransitionGroup
-          transitionName='example'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
+      <CSSTransitionGroup
+        transitionName='example'
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <div className='container-box'>
           <Button
             variant='success'
             size='lg'
@@ -64,19 +66,19 @@ function App() {
           >
             Next
           </Button>
-        </CSSTransitionGroup>
-      </div>
+        </div>
+      </CSSTransitionGroup>
     );
   } else if (isLoading === false && data.next === null) {
     customPaginationButtons = (
-      <div className='container'>
-        <CSSTransitionGroup
-          transitionName='example'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
+      <CSSTransitionGroup
+        transitionName='example'
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <div className='container-box'>
           <Button
             variant='success'
             size='lg'
@@ -85,8 +87,8 @@ function App() {
           >
             Previous
           </Button>
-        </CSSTransitionGroup>
-      </div>
+        </div>
+      </CSSTransitionGroup>
     );
   }
 
@@ -99,15 +101,21 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <h1>Pokedex</h1>
-      <h5>created by Jeryl</h5>
-      <br />
-
-      {customPaginationButtons}
-
-      <br />
-      {cardGrid}
+    <div>
+      <Jumbotron fluid>
+        <Container>
+          <h1 className='display-4'>Pokedex</h1>
+          <p className='lead'>
+            I created this Pokedex to practice React Hooks.
+          </p>
+        </Container>
+      </Jumbotron>
+      <div>
+        <br />
+        {customPaginationButtons}
+        <br />
+        {cardGrid}
+      </div>
     </div>
   );
 }
