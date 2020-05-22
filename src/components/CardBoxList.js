@@ -9,6 +9,7 @@ const CardBoxList = ({ pokemons }) => {
       {pokemons.map((pokemon, index) => {
         return (
           <CardBox
+            style={{ transition: 'all 2s ease-in 2s' }}
             key={index}
             id={index}
             name={pokemon.name}

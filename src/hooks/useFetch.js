@@ -15,8 +15,6 @@ export const useFetch = (url) => {
       isLoading: true,
     }));
 
-    console.log('mounted::', mounted);
-
     const fetchData = async (source) => {
       const resp = await fetch(source, {
         signal: abortController.signal,
@@ -36,6 +34,5 @@ export const useFetch = (url) => {
     // fetchData(url);
   }, [url]);
 
-  console.log(currentState);
   return currentState;
 };

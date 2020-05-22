@@ -4,17 +4,23 @@ import { useFetch } from '../hooks/useFetch';
 import CardsList from '../components/CardBoxList';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   let { data, isLoading } = useFetch(url);
 
-  let customPaginationButtons;
+  let customPaginationButtons, cardGrid;
 
   if (isLoading === false && data.previous === null) {
     customPaginationButtons = (
-      <div>
-        <Button variant='success' onClick={() => setUrl(data.next)}>
+      <div className='container'>
+        <Button
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.next)}
+          className='flexbox'
+        >
           Next
         </Button>
       </div>
@@ -25,35 +31,60 @@ function App() {
     data.next !== null
   ) {
     customPaginationButtons = (
-      <div>
-        <Button variant='success' onClick={() => setUrl(data.previous)}>
+      <div className='container'>
+        <Button
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.previous)}
+          className='flexbox'
+        >
           Previous
         </Button>
 
-        <Button variant='success' onClick={() => setUrl(data.next)}>
+        <Button
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.next)}
+          className='flexbox'
+        >
           Next
         </Button>
       </div>
     );
   } else if (isLoading === false && data.next === null) {
     customPaginationButtons = (
-      <div>
-        <Button variant='success' onClick={() => setUrl(data.previous)}>
+      <div className='container'>
+        <Button
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.previous)}
+          className='flexbox'
+        >
           Previous
         </Button>
       </div>
     );
   }
 
+  if (isLoading === false) {
+    cardGrid = (
+      <ErrorBoundary>
+        <CardsList
+          pokemons={data.results}
+          // style={{ 'margin-left': '10px', 'margin-right': '10px' }}
+        />
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <div className='App'>
       <h1>Pokedex</h1>
-      <h3>created by Jeryl</h3>
-      <h3>{isLoading ? 'Loading....' : data.count}</h3>
+      <h5>created by Jeryl</h5>
+      <br />
       {customPaginationButtons}
-      <ErrorBoundary>
-        {isLoading ? 'Loading....' : <CardsList pokemons={data.results} />}
-      </ErrorBoundary>
+      <br />
+      {cardGrid}
     </div>
   );
 }

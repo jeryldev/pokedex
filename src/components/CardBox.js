@@ -5,20 +5,13 @@ import './Components.css';
 import { useFetch } from '../hooks/useFetch';
 
 const CardBox = ({ name, source }) => {
-  // const [url, setUrl] = useState(source);
   let { data, isLoading } = useFetch(source);
-  // // console.log('url::', typeof url);
-  // console.log('name::', name);
-  // console.log('source::', source);
-  // console.log('source::', source);
-  isLoading
-    ? console.log('testing')
-    : console.log('sprites::', data.sprites.front_default);
 
   return (
     <div>
       {isLoading ? (
-        <Spinner animation='border' variant='success' />
+        // <Spinner animation='border' variant='success' />
+        console.log('loading...')
       ) : (
         <Card className='flexbox'>
           <Card.Img
