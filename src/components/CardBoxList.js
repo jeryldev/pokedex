@@ -3,7 +3,7 @@ import CardBox from './CardBox';
 import './Components.css';
 
 const CardBoxList = ({ pokemons }) => {
-  console.log('Pokemons:::', pokemons);
+  // console.log('pokemonssssss::', pokemons);
   return (
     <div className='grid-wrapper'>
       {pokemons.map((pokemon, index) => {
@@ -12,7 +12,7 @@ const CardBoxList = ({ pokemons }) => {
             key={index}
             id={index}
             name={pokemon.name}
-            url={pokemon.url}
+            source={pokemon.url}
           />
         );
       })}

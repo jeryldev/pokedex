@@ -1,30 +1,38 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
+import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
 import './Components.css';
 import { useFetch } from '../hooks/useFetch';
 
-const CardBox = ({ name, url }) => {
-  const { data, isLoading } = useFetch(url);
+const CardBox = ({ name, source }) => {
+  // const [url, setUrl] = useState(source);
+  let { data, isLoading } = useFetch(source);
+  // // console.log('url::', typeof url);
+  // console.log('name::', name);
+  // console.log('source::', source);
+  // console.log('source::', source);
+  isLoading
+    ? console.log('testing')
+    : console.log('sprites::', data.sprites.front_default);
 
   return (
     <div>
-      <Card className='flexbox'>
-        {isLoading ? (
-          console.log('testing loding...')
-        ) : (
-          <CardMedia
-            // className={data.sprites.front_default}
-            style={{ height: '96px', width: '96px' }}
-            image={data.sprites.front_default}
-            title={name}
+      {isLoading ? (
+        <Spinner animation='border' variant='success' />
+      ) : (
+        <Card className='flexbox'>
+          <Card.Img
+            variant='top'
+            src={data.sprites.front_default}
+            style={{ width: '96px', height: '96px' }}
           />
-        )}
-        <CardContent>
-          <Typography variant='h5' component='h2'>
-            {name}
-          </Typography>
-        </CardContent>
-      </Card>
+          <Card.Body>
+            <Card.Title>
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Card.Title>
+          </Card.Body>
+        </Card>
+      )}
     </div>
   );
 };
