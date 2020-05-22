@@ -54,6 +54,24 @@
   width: 300px;
 }
 
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.8s ease-in;
+}
+
 /* 
 .container-row {
   display: flex;

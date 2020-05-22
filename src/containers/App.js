@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch';
 import CardsList from '../components/CardBoxList';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -14,14 +15,22 @@ function App() {
   if (isLoading === false && data.previous === null) {
     customPaginationButtons = (
       <div className='container'>
-        <Button
-          variant='success'
-          size='lg'
-          onClick={() => setUrl(data.next)}
-          className='flexbox'
+        <CSSTransitionGroup
+          transitionName='example'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
         >
-          Next
-        </Button>
+          <Button
+            variant='success'
+            size='lg'
+            onClick={() => setUrl(data.next)}
+            className='flexbox'
+          >
+            Next
+          </Button>
+        </CSSTransitionGroup>
       </div>
     );
   } else if (
@@ -31,36 +40,52 @@ function App() {
   ) {
     customPaginationButtons = (
       <div className='container'>
-        <Button
-          variant='success'
-          size='lg'
-          onClick={() => setUrl(data.previous)}
-          className='flexbox'
+        <CSSTransitionGroup
+          transitionName='example'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
         >
-          Previous
-        </Button>
+          <Button
+            variant='success'
+            size='lg'
+            onClick={() => setUrl(data.previous)}
+            className='flexbox'
+          >
+            Previous
+          </Button>
 
-        <Button
-          variant='success'
-          size='lg'
-          onClick={() => setUrl(data.next)}
-          className='flexbox'
-        >
-          Next
-        </Button>
+          <Button
+            variant='success'
+            size='lg'
+            onClick={() => setUrl(data.next)}
+            className='flexbox'
+          >
+            Next
+          </Button>
+        </CSSTransitionGroup>
       </div>
     );
   } else if (isLoading === false && data.next === null) {
     customPaginationButtons = (
       <div className='container'>
-        <Button
-          variant='success'
-          size='lg'
-          onClick={() => setUrl(data.previous)}
-          className='flexbox'
+        <CSSTransitionGroup
+          transitionName='example'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
         >
-          Previous
-        </Button>
+          <Button
+            variant='success'
+            size='lg'
+            onClick={() => setUrl(data.previous)}
+            className='flexbox'
+          >
+            Previous
+          </Button>
+        </CSSTransitionGroup>
       </div>
     );
   }
@@ -78,7 +103,9 @@ function App() {
       <h1>Pokedex</h1>
       <h5>created by Jeryl</h5>
       <br />
+
       {customPaginationButtons}
+
       <br />
       {cardGrid}
     </div>
