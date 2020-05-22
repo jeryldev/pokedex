@@ -27,8 +27,8 @@ const CardBox = ({ name, source }) => {
   } else {
     cardBoxItem = (
       <Card className='flexbox'>
-        <div style={{ width: '96px', height: '96px' }}>
-          <Spinner animation='border' variant='danger' className='flexbox' />
+        <div style={{ width: '96px', height: '96px' }} className='container'>
+          <Spinner animation='border' variant='danger' />
         </div>
         <Card.Body>
           <Card.Title>

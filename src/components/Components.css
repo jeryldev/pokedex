@@ -15,6 +15,15 @@
   flex-direction: column;
   margin: 20px;
 }
+
+.container {
+  display: flex;
+  flex-flow: wrap;
+  align-content: center;
+  /* order: -5; */
+  justify-content: center;
+}
+
 /* 
 CardBox {
   transition: all 2s ease-in 2s;

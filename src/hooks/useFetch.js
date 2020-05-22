@@ -15,16 +15,17 @@ export const useFetch = (url) => {
       isLoading: true,
     }));
 
-    const fetchData = async (source) => {
-      const resp = await fetch(source, {
+    // const fetchData =
+    (async () => {
+      const resp = await fetch(url, {
         signal: abortController.signal,
       });
       const data = await resp.json();
 
       if (mounted) return setCurrentState({ data: data, isLoading: false });
-    };
+    })();
 
-    fetchData(url);
+    // fetchData(url);
 
     const cleanup = () => {
       mounted = false;
