@@ -12,6 +12,7 @@ const CardBox = ({ name, source }) => {
   let cardBoxItem;
 
   if (isLoading === false) {
+    // console.log('data:::', data.name);
     cardBoxItem = (
       <CSSTransitionGroup
         transitionName='cardbox'
@@ -27,12 +28,12 @@ const CardBox = ({ name, source }) => {
             style={{
               width: '96px',
               height: '96px',
-              transition: 'all 300ms ease-in 300ms',
+              transition: 'all 300ms ease-in-out 300ms',
             }}
           />
           <Card.Body>
             <Card.Title>
-              {name.charAt(0).toUpperCase() + name.slice(1)}
+              {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
             </Card.Title>
           </Card.Body>
         </Card>
@@ -52,7 +53,7 @@ const CardBox = ({ name, source }) => {
             style={{
               width: '96px',
               height: '96px',
-              transition: 'all 300ms ease-in 300ms',
+              transition: 'all 300ms ease-in-out 300ms',
             }}
             className='container-box'
           >
@@ -60,7 +61,8 @@ const CardBox = ({ name, source }) => {
           </div>
           <Card.Body>
             <Card.Title>
-              {name.charAt(0).toUpperCase() + name.slice(1)}
+              {/* {name.charAt(0).toUpperCase() + name.slice(1)} */}
+              Loading...
             </Card.Title>
           </Card.Body>
         </Card>
