@@ -7,91 +7,15 @@ import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import { CSSTransitionGroup } from 'react-transition-group';
-import Scroll from '../components/Scroll';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
-  let { data, isLoading } = useFetch(url);
+  const { data, isLoading } = useFetch(url);
+  console.log('Looks like rendering happens 3 times');
 
-  let customPaginationButtons, cardGrid;
-
-  if (isLoading === false && data.previous === null) {
-    customPaginationButtons = (
-      <CSSTransitionGroup
-        transitionName='example'
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <div className='container-box'>
-          <Button
-            variant='success'
-            size='lg'
-            onClick={() => setUrl(data.next)}
-            className='flexbox'
-          >
-            Next
-          </Button>
-        </div>
-      </CSSTransitionGroup>
-    );
-  } else if (
-    isLoading === false &&
-    data.previous !== null &&
-    data.next !== null
-  ) {
-    customPaginationButtons = (
-      <CSSTransitionGroup
-        transitionName='example'
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <div className='container-box'>
-          <Button
-            variant='success'
-            size='lg'
-            onClick={() => setUrl(data.previous)}
-            className='flexbox'
-          >
-            Previous
-          </Button>
-
-          <Button
-            variant='success'
-            size='lg'
-            onClick={() => setUrl(data.next)}
-            className='flexbox'
-          >
-            Next
-          </Button>
-        </div>
-      </CSSTransitionGroup>
-    );
-  } else if (isLoading === false && data.next === null) {
-    customPaginationButtons = (
-      <CSSTransitionGroup
-        transitionName='example'
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <div className='container-box'>
-          <Button
-            variant='success'
-            size='lg'
-            onClick={() => setUrl(data.previous)}
-            className='flexbox'
-          >
-            Previous
-          </Button>
-        </div>
-      </CSSTransitionGroup>
-    );
-  }
+  let cardGrid,
+    disablePrevious = false,
+    disableNext = false;
 
   if (isLoading === false) {
     cardGrid = (
@@ -99,6 +23,13 @@ function App() {
         <CardsList pokemons={data.results} />
       </ErrorBoundary>
     );
+
+    if (!data.previous) {
+      disablePrevious = true;
+    }
+    if (!data.next) {
+      disableNext = true;
+    }
   }
 
   return (
@@ -112,7 +43,28 @@ function App() {
         </Container>
       </Jumbotron>
       <br />
-      {customPaginationButtons}
+
+      <div className='container-box'>
+        <Button
+          disabled={disablePrevious}
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.previous)}
+          className='flexbox'
+        >
+          Previous
+        </Button>
+
+        <Button
+          disabled={disableNext}
+          variant='success'
+          size='lg'
+          onClick={() => setUrl(data.next)}
+          className='flexbox'
+        >
+          Next
+        </Button>
+      </div>
       <br />
       {cardGrid}
     </div>
