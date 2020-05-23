@@ -6,7 +6,6 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
