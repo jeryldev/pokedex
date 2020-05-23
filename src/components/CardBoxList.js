@@ -17,6 +17,7 @@ const CardBoxList = ({ pokemons }) => {
           transitionLeave={false}
         >
           <CardBox
+            className='pokemon-item'
             key={index}
             id={index}
             name={pokemon.name}

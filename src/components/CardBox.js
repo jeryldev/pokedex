@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import './Components.css';
@@ -6,6 +6,7 @@ import { useFetch } from '../hooks/useFetch';
 
 const CardBox = ({ name, source }) => {
   let { data, isLoading } = useFetch(source);
+  const [hovered, setHovered] = useState(false);
 
   let cardBoxItem;
 
@@ -29,7 +30,7 @@ const CardBox = ({ name, source }) => {
       <Card className='flexbox'>
         <div
           style={{ width: '96px', height: '96px' }}
-          className='container-box2'
+          className='container-box'
         >
           <Spinner animation='border' variant='danger' />
         </div>
@@ -42,7 +43,18 @@ const CardBox = ({ name, source }) => {
     );
   }
 
-  return <div>{cardBoxItem}</div>;
+  return (
+    <div
+      onMouseOut={() => setHovered(false)}
+      onMouseOver={() => setHovered(true)}
+      style={{
+        transition: 'all 300ms ease-in-out',
+        transform: `${hovered ? 'scale(1.2,1.2)' : 'scale(1,1)'}`,
+      }}
+    >
+      {cardBoxItem}
+    </div>
+  );
 };
 
 export default CardBox;

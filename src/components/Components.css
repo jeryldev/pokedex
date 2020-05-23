@@ -16,13 +16,12 @@
   margin: 20px;
 }
 
-.container-box2 {
+/* .container-box2 {
   display: flex;
   flex-flow: wrap;
   align-content: center;
-  /* order: -5; */
   justify-content: center;
-}
+} */
 
 .example-appear {
   opacity: 0.01;
@@ -52,7 +51,7 @@
 }
 
  */
-
+/* 
 .fade-enter {
   opacity: 0;
   height: 0%;
@@ -69,7 +68,7 @@
 .fade-leave-active {
   transition: all 1s;
   opacity: 0;
-}
+} */
 /* 
 CardBox {
   transition: all 2s ease-in 2s;
