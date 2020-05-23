@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Scroll from '../components/Scroll';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -110,12 +111,10 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <div>
-        <br />
-        {customPaginationButtons}
-        <br />
-        {cardGrid}
-      </div>
+      <br />
+      {customPaginationButtons}
+      <br />
+      {cardGrid}
     </div>
   );
 }
