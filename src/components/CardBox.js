@@ -6,13 +6,14 @@ import { useFetch } from '../hooks/useFetch';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 const CardBox = ({ source }) => {
-  let { data, isLoading } = useFetch(source);
+  let { data, isLoading } = useFetch(source.toLowerCase());
   const [hovered, setHovered] = useState(false);
 
   let cardBoxItem;
 
-  if (isLoading === false) {
-    // console.log('data:::', data.name);
+  console.log('testing data', data);
+
+  if (!data) {
     cardBoxItem = (
       <CSSTransitionGroup
         transitionName='cardbox'
@@ -22,24 +23,64 @@ const CardBox = ({ source }) => {
         transitionLeave={false}
       >
         <Card className='flexbox'>
-          <Card.Img
-            variant='top'
-            src={data.sprites.front_default}
-            style={{
-              width: '96px',
-              height: '96px',
-              transition: 'all 300ms ease-in-out 300ms',
-            }}
-          />
           <Card.Body>
-            <Card.Title>
-              {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
-            </Card.Title>
+            <Card.Title>Pokemon not found</Card.Title>
           </Card.Body>
         </Card>
       </CSSTransitionGroup>
     );
-  } else {
+  }
+
+  if (isLoading === false) {
+    // console.log('data:::', data.name);
+
+    if (data) {
+      cardBoxItem = (
+        <CSSTransitionGroup
+          transitionName='cardbox'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          <Card className='flexbox'>
+            <Card.Img
+              variant='top'
+              src={data.sprites.front_default}
+              style={{
+                width: '96px',
+                height: '96px',
+                transition: 'all 300ms ease-in-out 300ms',
+              }}
+            />
+            <Card.Body>
+              <Card.Title>
+                {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
+              </Card.Title>
+            </Card.Body>
+          </Card>
+        </CSSTransitionGroup>
+      );
+    }
+  }
+  // else if (!data && isLoading) {
+  //   cardBoxItem = (
+  //     <CSSTransitionGroup
+  //       transitionName='cardbox'
+  //       transitionAppear={true}
+  //       transitionAppearTimeout={500}
+  //       transitionEnter={false}
+  //       transitionLeave={false}
+  //     >
+  //       <Card className='flexbox' style={{ width: '18rem' }}>
+  //         <Card.Body>
+  //           <h5>Pokémon not found.</h5>
+  //         </Card.Body>
+  //       </Card>
+  //     </CSSTransitionGroup>
+  //   );
+  // }
+  else {
     cardBoxItem = (
       <CSSTransitionGroup
         transitionName='cardbox'
@@ -60,10 +101,7 @@ const CardBox = ({ source }) => {
             <Spinner animation='border' variant='danger' />
           </div>
           <Card.Body>
-            <Card.Title>
-              {/* {name.charAt(0).toUpperCase() + name.slice(1)} */}
-              Loading...
-            </Card.Title>
+            <Card.Title>Searching for Pokémon</Card.Title>
           </Card.Body>
         </Card>
       </CSSTransitionGroup>

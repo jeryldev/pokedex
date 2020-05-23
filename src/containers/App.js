@@ -16,7 +16,7 @@ function App() {
   const [fieldValue, setFieldValue] = useState('');
   const [activateSearch, setActivateSearch] = useState(false);
 
-  console.log('Looks like rendering happens 3 times');
+  // console.log('Looks like rendering happens 3 times');
 
   let cardGrid,
     disablePrevious = false,
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div>
-      <Jumbotron fluid className='bg-info text-white'>
+      <Jumbotron fluid className='bg-success text-white'>
         <Container>
           <h1 className='display-2'>Pokédex</h1>
           <p className='lead'>
@@ -68,7 +68,7 @@ function App() {
             value={fieldValue}
             onChange={(e) => {
               setActivateSearch(false);
-              setFieldValue(e.target.value.toLowerCase());
+              setFieldValue(e.target.value);
             }}
           />
           <InputGroup.Append>
