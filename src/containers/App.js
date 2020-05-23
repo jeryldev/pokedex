@@ -11,6 +11,7 @@ import SearchBox from '../components/SearchBox';
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const { data, isLoading } = useFetch(url);
+
   // console.log('Looks like rendering happens 3 times');
 
   let cardGrid,
@@ -42,7 +43,7 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <SearchBox searchChange={(event) => event.target.value} />
+      <SearchBox />
       <div className='container-box'>
         <Button
           disabled={disablePrevious}

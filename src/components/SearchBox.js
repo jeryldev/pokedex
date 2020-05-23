@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-const SearchBox = ({ searchChange }) => {
-  console.log('https://pokeapi.co/api/v2/pokemon/', searchChange);
+const SearchBox = () => {
+  //   console.log('https://pokeapi.co/api/v2/pokemon/', inputValue.pokemon);
+
+  const [fieldValue, setFieldValue] = useState('');
+  //   console.log(fieldValue);
+
   return (
     <div style={{ marginLeft: '25%', marginRight: '25%' }}>
       <label htmlFor='basic-url'>Search a Pokemon</label>
@@ -15,14 +19,22 @@ const SearchBox = ({ searchChange }) => {
           </InputGroup.Text>
         </InputGroup.Prepend> */}
         <FormControl
+          size='lg'
           id='basic-url'
           aria-describedby='basic-addon3'
           type='search'
           placeholder='pikachu'
-          onChange={searchChange}
+          value={fieldValue}
+          onChange={(e) => setFieldValue(e.target.value)}
         />
         <InputGroup.Append>
-          <Button variant='outline-primary'>Submit</Button>
+          <Button
+            variant='outline-primary'
+            type='submit'
+            onClick={() => console.log('testing:::', fieldValue)}
+          >
+            Submit
+          </Button>
         </InputGroup.Append>
       </InputGroup>
     </div>
