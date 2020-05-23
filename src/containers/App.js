@@ -33,11 +33,11 @@ function App() {
 
   return (
     <div>
-      <Jumbotron fluid>
+      <Jumbotron fluid className='bg-info text-white'>
         <Container>
-          <h1 className='display-4'>Pokedex</h1>
+          <h1 className='display-2'>Pokédex</h1>
           <p className='lead'>
-            I created this Pokedex to practice React Hooks.
+            I created this web page to practice React Hooks.
           </p>
         </Container>
       </Jumbotron>
