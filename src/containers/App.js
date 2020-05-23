@@ -42,7 +42,7 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <SearchBox />
+      <SearchBox searchChange={(event) => event.target.value} />
       <div className='container-box'>
         <Button
           disabled={disablePrevious}

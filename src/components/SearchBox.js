@@ -4,15 +4,16 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
 const SearchBox = ({ searchChange }) => {
+  console.log('https://pokeapi.co/api/v2/pokemon/', searchChange);
   return (
-    <div style={{ 'margin-left': '15%', 'margin-right': '15%' }}>
+    <div style={{ marginLeft: '25%', marginRight: '25%' }}>
       <label htmlFor='basic-url'>Search a Pokemon</label>
       <InputGroup className='mb-3'>
-        <InputGroup.Prepend>
+        {/* <InputGroup.Prepend>
           <InputGroup.Text id='basic-addon3'>
             https://pokeapi.co/api/v2/pokemon/
           </InputGroup.Text>
-        </InputGroup.Prepend>
+        </InputGroup.Prepend> */}
         <FormControl
           id='basic-url'
           aria-describedby='basic-addon3'
@@ -21,7 +22,7 @@ const SearchBox = ({ searchChange }) => {
           onChange={searchChange}
         />
         <InputGroup.Append>
-          <Button variant='outline-secondary'>Submit</Button>
+          <Button variant='outline-primary'>Submit</Button>
         </InputGroup.Append>
       </InputGroup>
     </div>
