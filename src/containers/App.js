@@ -6,11 +6,12 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import SearchBox from '../components/SearchBox';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const { data, isLoading } = useFetch(url);
-  console.log('Looks like rendering happens 3 times');
+  // console.log('Looks like rendering happens 3 times');
 
   let cardGrid,
     disablePrevious = false,
@@ -41,7 +42,7 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-
+      <SearchBox />
       <div className='container-box'>
         <Button
           disabled={disablePrevious}

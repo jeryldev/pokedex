@@ -9,7 +9,6 @@ const CardBox = ({ name, source }) => {
   let { data, isLoading } = useFetch(source);
   const [hovered, setHovered] = useState(false);
 
-  console.log('cardbox rendering');
   let cardBoxItem;
 
   if (isLoading === false) {
