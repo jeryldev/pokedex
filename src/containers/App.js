@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import { useFetch } from '../hooks/useFetch';
 import CardsList from '../components/CardBoxList';
-import ErrorBoundary from '../components/ErrorBoundary';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
-import SearchBox from '../components/SearchBox';
 
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
@@ -29,22 +27,16 @@ function App() {
       if (activateSearch) {
         console.log('fetch pokemon');
         cardGrid = (
-          <ErrorBoundary>
-            <div className='container-box'>
-              <CardBox
-                className='pokemon-item'
-                source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
-              />
-            </div>
-          </ErrorBoundary>
+          <div className='container-box'>
+            <CardBox
+              className='pokemon-item'
+              source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
+            />
+          </div>
         );
       }
     } else {
-      cardGrid = (
-        <ErrorBoundary>
-          <CardsList pokemons={data.results} />
-        </ErrorBoundary>
-      );
+      cardGrid = <CardsList pokemons={data.results} />;
     }
 
     if (!data.previous) {
@@ -53,10 +45,6 @@ function App() {
     if (!data.next) {
       disableNext = true;
     }
-
-    // if (fieldValue === '') {
-    //   setActivateSearch(false);
-    // }
   }
 
   return (
@@ -116,6 +104,7 @@ function App() {
         </Button>
       </div>
       <br />
+
       {cardGrid}
     </div>
   );

@@ -5,7 +5,7 @@ import './Components.css';
 import { useFetch } from '../hooks/useFetch';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-const CardBox = ({ name, source }) => {
+const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source);
   const [hovered, setHovered] = useState(false);
 

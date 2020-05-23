@@ -17,12 +17,16 @@ export const useFetch = (url) => {
 
     // const fetchData =
     (async () => {
-      const resp = await fetch(url, {
-        signal: abortController.signal,
-      });
-      const data = await resp.json();
+      try {
+        const resp = await fetch(url, {
+          signal: abortController.signal,
+        });
+        const data = await resp.json();
 
-      if (mounted) return setCurrentState({ data: data, isLoading: false });
+        if (mounted) return setCurrentState({ data: data, isLoading: false });
+      } catch (error) {
+        console.log('Error has occurred::', error);
+      }
     })();
 
     // fetchData(url);
