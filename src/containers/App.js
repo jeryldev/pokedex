@@ -41,7 +41,6 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <br />
 
       <div className='container-box'>
         <Button
