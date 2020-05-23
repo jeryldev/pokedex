@@ -38,7 +38,6 @@ function App() {
             </div>
           </ErrorBoundary>
         );
-        // setActivateSearch(false);
       }
     } else {
       cardGrid = (
