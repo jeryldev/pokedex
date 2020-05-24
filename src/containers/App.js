@@ -15,7 +15,7 @@ function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const { data, isLoading } = useFetch(url);
   const [fieldValue, setFieldValue] = useState('');
-  const [activateSearch, setActivateSearch] = useState(false);
+  // const [activateSearch, setActivateSearch] = useState(false);
 
   // console.log('Looks like rendering happens 3 times');
 
@@ -25,17 +25,17 @@ function App() {
 
   if (isLoading === false) {
     if (fieldValue !== '') {
-      if (activateSearch) {
-        console.log('fetch pokemon');
-        cardGrid = (
-          <div className='container-box'>
-            <CardBox
-              className='pokemon-item'
-              source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
-            />
-          </div>
-        );
-      }
+      // if (activateSearch) {
+      console.log('fetch pokemon');
+      cardGrid = (
+        <div className='container-box'>
+          <CardBox
+            className='pokemon-item'
+            source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
+          />
+        </div>
+      );
+      // }
     } else {
       cardGrid = <CardsList pokemons={data.results} />;
     }
@@ -52,7 +52,9 @@ function App() {
     <div>
       <Jumbotron fluid className='text-white' id='jumbotron-section'>
         <Container>
-          <h1 className='display-2'>Pokédex</h1>
+          <h1 className='display-1' id='jumbotron-title'>
+            Pokédex
+          </h1>
           <p className='lead'>
             I created this web page to practice React Hooks.
           </p>
@@ -69,20 +71,24 @@ function App() {
         </Container>
       </Jumbotron>
       <div style={{ marginLeft: '10%', marginRight: '10%' }}>
-        <InputGroup className='mb-3'>
+        <InputGroup className='mb-3' size='lg'>
+          {/* <InputGroup.Prepend>
+            <InputGroup.Text id='general-button-class'>
+              <Search />
+            </InputGroup.Text>
+          </InputGroup.Prepend> */}
           <FormControl
-            size='lg'
             id='basic-url'
             aria-describedby='basic-addon3'
             type='search'
             placeholder='Search a Pokémon'
             value={fieldValue}
             onChange={(e) => {
-              setActivateSearch(false);
+              // setActivateSearch(false);
               setFieldValue(e.target.value);
             }}
           />
-          <InputGroup.Append>
+          {/* <InputGroup.Append>
             <Button
               variant='primary'
               type='submit'
@@ -92,7 +98,7 @@ function App() {
             >
               <Search />
             </Button>
-          </InputGroup.Append>
+          </InputGroup.Append> */}
         </InputGroup>
       </div>
       <div className='container-box'>

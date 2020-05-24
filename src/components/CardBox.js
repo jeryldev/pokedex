@@ -50,6 +50,7 @@ const CardBox = ({ source }) => {
               style={{
                 width: '96px',
                 height: '96px',
+                marginTop: '1.25rem',
                 transition: 'all 300ms ease-in-out 300ms',
               }}
             />
@@ -94,6 +95,7 @@ const CardBox = ({ source }) => {
             style={{
               width: '96px',
               height: '96px',
+              marginTop: '1.25rem',
               transition: 'all 300ms ease-in-out 300ms',
             }}
             className='container-box'
