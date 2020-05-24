@@ -21,7 +21,7 @@ const CardBox = ({ source }) => {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <Card className='flexbox pokemon-item'>
+          <Card className='flex-child'>
             <Card.Img
               variant='top'
               src={data.sprites.front_default}
@@ -49,7 +49,7 @@ const CardBox = ({ source }) => {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <Card className='flexbox pokemon-item'>
+          <Card className='flex-child'>
             <Card.Body>
               <Card.Title>{data}</Card.Title>
             </Card.Body>
@@ -59,7 +59,7 @@ const CardBox = ({ source }) => {
     }
   } else {
     cardBoxItem = (
-      <Card className='flexbox pokemon-item'>
+      <Card className='flex-child'>
         <div
           style={{
             width: '96px',
@@ -84,7 +84,7 @@ const CardBox = ({ source }) => {
       onMouseOver={() => setHovered(true)}
       style={{
         transition: 'all 300ms ease-in-out',
-        transform: `${hovered ? 'scale(1.2)' : 'scale(1)'}`,
+        transform: `${hovered ? 'scale(1.1)' : 'scale(1)'}`,
       }}
     >
       {cardBoxItem}

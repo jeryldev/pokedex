@@ -107,7 +107,7 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+      <div style={{ marginLeft: '15%', marginRight: '15%' }}>
         <InputGroup className='mb-3' size='lg'>
           {/* <InputGroup.Prepend>
             <InputGroup.Text id='general-button-class'>
@@ -145,7 +145,7 @@ function App() {
           size='lg'
           id='previous-button'
           onClick={() => setUrl(data.previous)}
-          className='flexbox'
+          className='pagination-box'
         >
           Previous
         </Button>
@@ -156,13 +156,11 @@ function App() {
           size='lg'
           id='next-button'
           onClick={() => setUrl(data.next)}
-          className='flexbox'
+          className='pagination-box'
         >
           Next
         </Button>
       </div>
-      <br />
-
       {cardGrid}
     </div>
   );
