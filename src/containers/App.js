@@ -46,7 +46,7 @@ function App() {
       <Jumbotron fluid className='text-white' id='jumbotron-section'>
         <Container>
           <h1 className='display-1' id='jumbotron-title'>
-            Pokédex
+            The Pokédex Project
           </h1>
           <p className='lead'>
             Hello friend! I'm{' '}
@@ -59,7 +59,7 @@ function App() {
             >
               Jeryl
             </a>
-            ! I created this web page to practice{' '}
+            ! I created this web site to practice{' '}
             <a
               href='https://reactjs.org/docs/hooks-intro.html'
               title='React Hooks'
