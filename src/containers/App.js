@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import CardBox from '../components/CardBox';
+import { Search } from 'react-bootstrap-icons';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -57,7 +58,7 @@ function App() {
           </p>
         </Container>
       </Jumbotron>
-      <div style={{ marginLeft: '25%', marginRight: '25%' }}>
+      <div style={{ marginLeft: '10%', marginRight: '10%' }}>
         <InputGroup className='mb-3'>
           <FormControl
             size='lg'
@@ -75,9 +76,10 @@ function App() {
             <Button
               variant='outline-primary'
               type='submit'
+              size='lg'
               onClick={() => setActivateSearch(true)}
             >
-              Search a Pokémon
+              <Search />
             </Button>
           </InputGroup.Append>
         </InputGroup>
