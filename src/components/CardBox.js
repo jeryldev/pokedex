@@ -43,7 +43,7 @@ const CardBox = ({ source }) => {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <Card className='flexbox'>
+          <Card className='flexbox pokemon-item'>
             <Card.Img
               variant='top'
               src={data.sprites.front_default}
@@ -83,7 +83,7 @@ const CardBox = ({ source }) => {
   else {
     cardBoxItem = (
       <CSSTransitionGroup
-        transitionName='cardbox'
+        transitionName='cardboxEffect'
         transitionAppear={true}
         transitionAppearTimeout={500}
         transitionEnter={false}

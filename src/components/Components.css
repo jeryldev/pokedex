@@ -14,6 +14,10 @@
   margin: 20px;
 }
 
+.pokemon-item {
+  background-color: #ebf5f0 !important;
+}
+
 /* .container-box2 {
   display: flex;
   flex-flow: wrap;
@@ -39,20 +43,20 @@
   transition: opacity 0.7s ease-in;
 }
 
-.cardbox-appear {
+.cardboxEffect-appear {
   opacity: 0.01;
 }
 
-.cardbox-leave.cardbox-leave-active {
+.cardboxEffect-leave.cardbox-leave-active {
   opacity: 0.01;
   transition: opacity 1s ease-in;
 }
 
-.cardbox-leave {
+.cardboxEffect-leave {
   opacity: 1;
 }
 
-.cardbox-appear.cardbox-appear-active {
+.cardboxEffect-appear.cardbox-appear-active {
   opacity: 1;
   transition: opacity 1s ease-in;
 }
