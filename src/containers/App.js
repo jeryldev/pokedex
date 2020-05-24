@@ -58,7 +58,7 @@ function App() {
               rel='noopener noreferrer'
             >
               Jeryl
-            </a>{' '}
+            </a>
             ! I created this web page to practice React Hooks.
           </p>
 
