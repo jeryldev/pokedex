@@ -59,7 +59,17 @@ function App() {
             >
               Jeryl
             </a>
-            ! I created this web page to practice React Hooks.
+            ! I created this web page to practice{' '}
+            <a
+              href='https://reactjs.org/docs/hooks-intro.html'
+              title='React Hooks'
+              className='link-reference'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              React Hooks
+            </a>
+            .
           </p>
 
           <p className='lead'>
