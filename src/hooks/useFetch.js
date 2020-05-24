@@ -25,7 +25,8 @@ export const useFetch = (url) => {
 
         if (mounted) return setCurrentState({ data: data, isLoading: false });
       } catch (error) {
-        console.log('Error has occurred::', error);
+        console.log('Pokemon not found');
+        // return setCurrentState({ data: {}, isLoading: true });
       }
     })();
 

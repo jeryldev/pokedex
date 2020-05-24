@@ -15,9 +15,6 @@ function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const { data, isLoading } = useFetch(url);
   const [fieldValue, setFieldValue] = useState('');
-  // const [activateSearch, setActivateSearch] = useState(false);
-
-  // console.log('Looks like rendering happens 3 times');
 
   let cardGrid,
     disablePrevious = false,
@@ -25,8 +22,6 @@ function App() {
 
   if (isLoading === false) {
     if (fieldValue !== '') {
-      // if (activateSearch) {
-      console.log('fetch pokemon');
       cardGrid = (
         <div className='container-box'>
           <CardBox
@@ -64,6 +59,7 @@ function App() {
               href='https://pokeapi.co/'
               className='link-reference'
               target='_blank'
+              rel='noopener noreferrer'
             >
               PokéAPI
             </a>
