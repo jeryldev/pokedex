@@ -64,7 +64,7 @@ function App() {
             id='basic-url'
             aria-describedby='basic-addon3'
             type='search'
-            placeholder='pikachu'
+            placeholder='Search a Pokémon'
             value={fieldValue}
             onChange={(e) => {
               setActivateSearch(false);
