@@ -9,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import CardBox from '../components/CardBox';
-import { Search } from 'react-bootstrap-icons';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -30,7 +29,6 @@ function App() {
           />
         </div>
       );
-      // }
     } else {
       cardGrid = <CardsList pokemons={data.results} />;
     }
