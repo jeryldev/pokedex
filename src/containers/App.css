@@ -32,6 +32,40 @@
   transition: opacity 0.7s ease-in;
 }
 
+#jumbotron-section {
+  background-color: #ef5350;
+}
+
+a.link-reference,
+a.link-reference:hover {
+  color: #b3d4fc;
+  font-weight: 400;
+}
+
+#general-button-class,
+#previous-button,
+#next-button {
+  /* color: #198cd2; */
+  background-color: #1b95e0;
+  border-color: #1b95e0;
+}
+
+#general-button-class:hover,
+#previous-button:hover,
+#next-button:hover {
+  /* color: #198cd2; */
+  background-color: #198cd2;
+  /* border-color: #198cd2; */
+}
+
+#general-button-class:active,
+#previous-button:active,
+#next-button:active {
+  /* color: #198cd2; */
+  background-color: #1677b2;
+  /* border-color: #1677b2; */
+}
+
 /* 
 .container-row {
   display: flex;

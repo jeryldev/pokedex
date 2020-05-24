@@ -50,11 +50,21 @@ function App() {
 
   return (
     <div>
-      <Jumbotron fluid className='bg-success text-white'>
+      <Jumbotron fluid className='text-white' id='jumbotron-section'>
         <Container>
           <h1 className='display-2'>Pokédex</h1>
           <p className='lead'>
             I created this web page to practice React Hooks.
+          </p>
+          <p className='lead'>
+            This page is powered by{' '}
+            <a
+              href='https://pokeapi.co/'
+              className='link-reference'
+              target='_blank'
+            >
+              PokéAPI
+            </a>
           </p>
         </Container>
       </Jumbotron>
@@ -74,9 +84,10 @@ function App() {
           />
           <InputGroup.Append>
             <Button
-              variant='outline-primary'
+              variant='primary'
               type='submit'
               size='lg'
+              id='general-button-class'
               onClick={() => setActivateSearch(true)}
             >
               <Search />
@@ -87,8 +98,9 @@ function App() {
       <div className='container-box'>
         <Button
           disabled={disablePrevious || fieldValue !== '' ? true : false}
-          variant='success'
+          variant='primary'
           size='lg'
+          id='previous-button'
           onClick={() => setUrl(data.previous)}
           className='flexbox'
         >
@@ -97,8 +109,9 @@ function App() {
 
         <Button
           disabled={disableNext || fieldValue !== '' ? true : false}
-          variant='success'
+          variant='primary'
           size='lg'
+          id='next-button'
           onClick={() => setUrl(data.next)}
           className='flexbox'
         >
