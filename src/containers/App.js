@@ -46,7 +46,7 @@ function App() {
       <Jumbotron fluid className='text-white' id='jumbotron-section'>
         <Container>
           <h1 className='display-1' id='jumbotron-title'>
-            The Pokédex Project
+            Pokédex Project
           </h1>
           <p className='lead'>
             Hello friend! I'm{' '}
