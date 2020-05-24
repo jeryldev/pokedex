@@ -49,11 +49,21 @@ function App() {
             Pokédex
           </h1>
           <p className='lead'>
-            I created this web page to practice React Hooks.
+            Hello friend! I'm{' '}
+            <a
+              href='https://twitter.com/JerylDEv'
+              title='Jeryl'
+              className='link-reference'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Jeryl
+            </a>{' '}
+            ! I created this web page to practice React Hooks.
           </p>
 
           <p className='lead'>
-            This API used is made by{' '}
+            The API I used is made by{' '}
             <a
               href='https://pokeapi.co/'
               title='pokeapi.co'
@@ -62,8 +72,8 @@ function App() {
               rel='noopener noreferrer'
             >
               PokéAPI
-            </a>
-            . The Pokeball Icons used are made by{' '}
+            </a>{' '}
+            and the Pokéball icons I used are made by{' '}
             <a
               href='https://www.flaticon.com/authors/those-icons'
               title='Those Icons'
