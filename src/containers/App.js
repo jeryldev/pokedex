@@ -83,7 +83,7 @@ function App() {
             >
               PokéAPI
             </a>{' '}
-            and the Pokéball icons I used are made by{' '}
+            while the Pokéball icons I used are made by{' '}
             <a
               href='https://www.flaticon.com/authors/those-icons'
               title='Those Icons'
