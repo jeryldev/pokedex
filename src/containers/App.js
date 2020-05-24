@@ -83,7 +83,7 @@ function App() {
             >
               PokéAPI
             </a>{' '}
-            while the Pokéball icons I used are made by{' '}
+            while the Pokéball icons I used are created by{' '}
             <a
               href='https://www.flaticon.com/authors/those-icons'
               title='Those Icons'
@@ -102,8 +102,9 @@ function App() {
               rel='noopener noreferrer'
             >
               {' '}
-              www.flaticon.com
+              Flaticon
             </a>
+            .
           </p>
         </Container>
       </Jumbotron>
