@@ -59,22 +59,30 @@ const CardBox = ({ source }) => {
     }
   } else {
     cardBoxItem = (
-      <Card className='flex-child'>
-        <div
-          style={{
-            width: '96px',
-            height: '96px',
-            marginTop: '1.25rem',
-            transition: 'all 300ms ease-in-out 300ms',
-          }}
-          className='container-box'
-        >
-          <Spinner animation='border' variant='danger' />
-        </div>
-        <Card.Body>
-          <Card.Title>Searching for Pokémon</Card.Title>
-        </Card.Body>
-      </Card>
+      <CSSTransitionGroup
+        transitionName='cardbox'
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <Card className='flex-child'>
+          <div
+            style={{
+              width: '96px',
+              height: '96px',
+              marginTop: '1.25rem',
+              transition: 'all 300ms ease-in-out 300ms',
+            }}
+            className='container-box'
+          >
+            <Spinner animation='border' variant='danger' />
+          </div>
+          <Card.Body>
+            <Card.Title>Searching for Pokémon</Card.Title>
+          </Card.Body>
+        </Card>
+      </CSSTransitionGroup>
     );
   }
 
@@ -91,26 +99,5 @@ const CardBox = ({ source }) => {
     </div>
   );
 };
-
-// const noPokemon = () => {
-//   setTimeout(() => {
-//     cardBoxItem = (
-//       <CSSTransitionGroup
-//         transitionName='cardbox'
-//         transitionAppear={true}
-//         transitionAppearTimeout={500}
-//         transitionEnter={false}
-//         transitionLeave={false}
-//       >
-//         <Card className='flexbox'>
-//           <Card.Body>
-//             <Card.Title>Pokemon not found</Card.Title>
-//           </Card.Body>
-//         </Card>
-//       </CSSTransitionGroup>
-//     );
-//   }, 5000);
-// };
-// noPokemon();
 
 export default CardBox;

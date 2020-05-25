@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import CardBox from '../components/CardBox';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 function App() {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -22,12 +23,20 @@ function App() {
   if (isLoading === false) {
     if (fieldValue !== '') {
       cardGrid = (
-        <div className='container-box'>
-          <CardBox
-            className='pokemon-item'
-            source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
-          />
-        </div>
+        <CSSTransitionGroup
+          transitionName='cardbox'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          <div className='container-box'>
+            <CardBox
+              className='pokemon-item'
+              source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
+            />
+          </div>
+        </CSSTransitionGroup>
       );
     } else {
       cardGrid = <CardsList pokemons={data.results} />;
