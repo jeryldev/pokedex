@@ -15,18 +15,21 @@ export const useFetch = (url) => {
       isLoading: true,
     }));
 
-    (async () => {
-      try {
-        const resp = await fetch(url, {
-          signal: abortController.signal,
-        });
-        const data = await resp.json();
+    if (mounted) {
+      (async () => {
+        try {
+          const resp = await fetch(url, {
+            signal: abortController.signal,
+          });
+          const data = await resp.json();
 
-        if (mounted) return setCurrentState({ data: data, isLoading: false });
-      } catch (error) {
-        setCurrentState({ data: 'Pokemon not found', isLoading: false });
-      }
-    })();
+          // if (mounted) return setCurrentState({ data: data, isLoading: false });
+          return setCurrentState({ data: data, isLoading: false });
+        } catch (error) {
+          setCurrentState({ data: 'Pokemon not found', isLoading: false });
+        }
+      })();
+    }
 
     const cleanup = () => {
       mounted = false;
