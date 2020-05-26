@@ -14,11 +14,11 @@ import { PaginationSection } from '../components/PaginationSection';
 
 function App() {
   const [urlParams, setUrlParams] = useState({ offset: 0, limit: 20 });
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
-  // const [url, setUrl] = useLocalStorage(
-  //   'url',
-  //   'https://pokeapi.co/api/v2/pokemon/'
-  // );
+  // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+  const [url, setUrl] = useLocalStorage(
+    'url',
+    'https://pokeapi.co/api/v2/pokemon/'
+  );
   const { data, isLoading } = useFetch(url);
   const [fieldValue, setFieldValue] = useState('');
 
@@ -27,9 +27,9 @@ function App() {
     disableNext = false;
 
   if (isLoading === false) {
-    console.log('url::', url);
-    console.log('next::', data.next);
-    console.log('previous::', data.previous);
+    // console.log('url::', url);
+    // console.log('next::', data.next);
+    // console.log('previous::', data.previous);
     if (fieldValue !== '') {
       cardGrid = (
         <CSSTransitionGroup
@@ -71,26 +71,30 @@ function App() {
       />
       <PaginationSection
         previousOnClickFunction={() => {
-          setUrlParams((currentState) => ({
-            offset: currentState.offset - 20,
-            limit: currentState.limit,
-          }));
-          setUrl(
-            `https://pokeapi.co/api/v2/pokemon/?offset=${
-              urlParams.offset - 20
-            }&limit=${urlParams.limit}`
-          );
+          if (data.previous) {
+            setUrl(data.previous);
+          } else {
+            setUrlParams((currentState) => ({
+              offset: currentState.offset - 20,
+              limit: currentState.limit,
+            }));
+            setUrl(
+              `https://pokeapi.co/api/v2/pokemon/?offset=${urlParams.offset}&limit=${urlParams.limit}`
+            );
+          }
         }}
         nextOnClickFunction={() => {
-          setUrlParams((currentState) => ({
-            offset: currentState.offset + 20,
-            limit: currentState.limit,
-          }));
-          setUrl(
-            `https://pokeapi.co/api/v2/pokemon/?offset=${
-              urlParams.offset + 20
-            }&limit=${urlParams.limit}`
-          );
+          if (data.next) {
+            setUrl(data.next);
+          } else {
+            setUrlParams((currentState) => ({
+              offset: currentState.offset + 20,
+              limit: currentState.limit,
+            }));
+            setUrl(
+              `https://pokeapi.co/api/v2/pokemon/?offset=${urlParams.offset}&limit=${urlParams.limit}`
+            );
+          }
         }}
         disablePrevious={disablePrevious}
         disableNext={disableNext}
