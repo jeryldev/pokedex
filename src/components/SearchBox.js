@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
 
-const SearchBox = ({ searchValue, searchFunction }) => {
+export const SearchBox = ({ searchValue, searchFunction }) => {
   return (
     <div style={{ marginLeft: '15%', marginRight: '15%' }}>
       <InputGroup className='mb-3' size='lg'>
@@ -35,5 +34,3 @@ const SearchBox = ({ searchValue, searchFunction }) => {
     </div>
   );
 };
-
-export default SearchBox;
