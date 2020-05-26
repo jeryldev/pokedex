@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
+
 import { useFetch } from '../hooks/useFetch';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import CardsList from '../components/CardBoxList';
-import Button from 'react-bootstrap/Button';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
+import CardBox from '../components/CardBox';
 
+import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import CardBox from '../components/CardBox';
 import { CSSTransitionGroup } from 'react-transition-group';
+import { JumbotronSection } from '../components/JumbotronSection';
 
 function App() {
   // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -58,71 +58,7 @@ function App() {
 
   return (
     <div>
-      <Jumbotron fluid className='text-white' id='jumbotron-section'>
-        <Container>
-          <h1 className='display-1' id='jumbotron-title'>
-            Pokédex Project
-          </h1>
-          <p className='lead'>
-            Hello friend! I'm{' '}
-            <a
-              href='https://twitter.com/JerylDEv'
-              title='Jeryl'
-              className='link-reference'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Jeryl
-            </a>
-            ! I created this web site to practice{' '}
-            <a
-              href='https://reactjs.org/docs/hooks-intro.html'
-              title='React Hooks'
-              className='link-reference'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              React Hooks
-            </a>
-            .
-          </p>
-
-          <p className='lead'>
-            The API I used is made by{' '}
-            <a
-              href='https://pokeapi.co/'
-              title='pokeapi.co'
-              className='link-reference'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              PokéAPI
-            </a>{' '}
-            while the Pokéball icons I used are created by{' '}
-            <a
-              href='https://www.flaticon.com/authors/those-icons'
-              title='Those Icons'
-              className='link-reference'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Those Icons
-            </a>{' '}
-            from{' '}
-            <a
-              href='https://www.flaticon.com/'
-              title='Flaticon'
-              className='link-reference'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              {' '}
-              Flaticon
-            </a>
-            .
-          </p>
-        </Container>
-      </Jumbotron>
+      <JumbotronSection />
       <div style={{ marginLeft: '15%', marginRight: '15%' }}>
         <InputGroup className='mb-3' size='lg'>
           {/* <InputGroup.Prepend>
