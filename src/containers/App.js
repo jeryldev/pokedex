@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { useFetch } from '../hooks/useFetch';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+
 import CardsList from '../components/CardBoxList';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -12,7 +14,11 @@ import CardBox from '../components/CardBox';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 function App() {
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+  // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+  const [url, setUrl] = useLocalStorage(
+    'url',
+    'https://pokeapi.co/api/v2/pokemon/'
+  );
   const { data, isLoading } = useFetch(url);
   const [fieldValue, setFieldValue] = useState('');
 
