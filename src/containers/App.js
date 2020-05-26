@@ -14,11 +14,12 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import { JumbotronSection } from '../components/JumbotronSection';
 
 function App() {
-  // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
-  const [url, setUrl] = useLocalStorage(
-    'url',
-    'https://pokeapi.co/api/v2/pokemon/'
-  );
+  const [urlParams, setUrlParams] = useState({ offset: 0, limit: 20 });
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+  // const [url, setUrl] = useLocalStorage(
+  //   'url',
+  //   'https://pokeapi.co/api/v2/pokemon/'
+  // );
   const { data, isLoading } = useFetch(url);
   const [fieldValue, setFieldValue] = useState('');
 
@@ -27,6 +28,9 @@ function App() {
     disableNext = false;
 
   if (isLoading === false) {
+    console.log('url', url);
+    console.log('next url', data.next);
+    console.log('previous url', data.previous);
     if (fieldValue !== '') {
       cardGrid = (
         <CSSTransitionGroup
@@ -96,7 +100,18 @@ function App() {
           variant='primary'
           size='lg'
           id='previous-button'
-          onClick={() => setUrl(data.previous)}
+          // onClick={() => setUrl(data.previous)}
+          onClick={() => {
+            setUrlParams((currentState) => ({
+              offset: currentState.offset - 20,
+              limit: currentState.limit,
+            }));
+            setUrl(
+              `https://pokeapi.co/api/v2/pokemon/?offset=${
+                urlParams.offset - 20
+              }&limit=${urlParams.limit}`
+            );
+          }}
           className='pagination-box'
         >
           Previous
@@ -107,7 +122,18 @@ function App() {
           variant='primary'
           size='lg'
           id='next-button'
-          onClick={() => setUrl(data.next)}
+          // onClick={() => setUrl(data.next)}
+          onClick={() => {
+            setUrlParams((currentState) => ({
+              offset: currentState.offset + 20,
+              limit: currentState.limit,
+            }));
+            setUrl(
+              `https://pokeapi.co/api/v2/pokemon/?offset=${
+                urlParams.offset + 20
+              }&limit=${urlParams.limit}`
+            );
+          }}
           className='pagination-box'
         >
           Next
