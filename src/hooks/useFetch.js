@@ -15,7 +15,6 @@ export const useFetch = (url) => {
       isLoading: true,
     }));
 
-    // const fetchData =
     (async () => {
       try {
         const resp = await fetch(url, {
@@ -29,14 +28,11 @@ export const useFetch = (url) => {
       }
     })();
 
-    // fetchData(url);
-
     const cleanup = () => {
       mounted = false;
       abortController.abort();
     };
     return cleanup;
-    // fetchData(url);
   }, [url]);
 
   return currentState;
