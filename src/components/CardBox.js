@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import './Components.css';
 import { useFetch } from '../hooks/useFetch';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source.toLowerCase());
@@ -14,13 +13,7 @@ const CardBox = ({ source }) => {
   if (isLoading === false) {
     try {
       cardBoxItem = (
-        <CSSTransitionGroup
-          transitionName='cardbox'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
+     
           <Card className='flex-child'>
             <Card.Img
               variant='top'
@@ -43,17 +36,9 @@ const CardBox = ({ source }) => {
               </Card.Title>
             </Card.Body>
           </Card>
-        </CSSTransitionGroup>
       );
     } catch (error) {
       cardBoxItem = (
-        <CSSTransitionGroup
-          transitionName='cardbox'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
           <Card className='flex-child'>
             <Card.Img
               variant='top'
@@ -70,18 +55,10 @@ const CardBox = ({ source }) => {
               <Card.Title>{data}</Card.Title>
             </Card.Body>
           </Card>
-        </CSSTransitionGroup>
       );
     }
   } else {
     cardBoxItem = (
-      <CSSTransitionGroup
-        transitionName='cardbox'
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
         <Card className='flex-child'>
           {/* <Card.Img
             variant='top'
@@ -108,7 +85,6 @@ const CardBox = ({ source }) => {
             <Card.Title>Searching for Pokémon</Card.Title>
           </Card.Body>
         </Card>
-      </CSSTransitionGroup>
     );
   }
 

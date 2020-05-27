@@ -7,7 +7,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import CardsList from '../components/CardBoxList';
 import CardBox from '../components/CardBox';
 
-import { CSSTransitionGroup } from 'react-transition-group';
 import { JumbotronSection } from '../components/JumbotronSection';
 import { SearchBox } from '../components/SearchBox';
 import { PaginationSection } from '../components/PaginationSection';
@@ -32,20 +31,13 @@ function App() {
     // console.log('previous::', data.previous);
     if (fieldValue !== '') {
       cardGrid = (
-        <CSSTransitionGroup
-          transitionName='cardbox'
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
+
           <div className='container-box'>
             <CardBox
               className='pokemon-item'
               source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
             />
           </div>
-        </CSSTransitionGroup>
       );
     } else {
       cardGrid = <CardsList pokemons={data.results} />;
