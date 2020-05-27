@@ -12,7 +12,11 @@ import { SearchBox } from '../components/SearchBox';
 import { PaginationSection } from '../components/PaginationSection';
 
 function App() {
-  const [urlParams, setUrlParams] = useState({ offset: 0, limit: 20 });
+  // const [urlParams, setUrlParams] = useState({ offset: 0, limit: 20 });
+  const [urlParams, setUrlParams] = useLocalStorage('urlParams', {
+    offset: 0,
+    limit: 20,
+  });
   // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const [url, setUrl] = useLocalStorage(
     'url',
@@ -26,9 +30,6 @@ function App() {
     disableNext = false;
 
   if (isLoading === false) {
-    console.log('url::', url);
-    console.log('next::', data.next);
-    console.log('previous::', data.previous);
     if (fieldValue !== '') {
       cardGrid = (
         <div className='container-box'>
@@ -62,30 +63,28 @@ function App() {
       />
       <PaginationSection
         previousOnClickFunction={() => {
-          if (data.previous) {
-            setUrl(data.previous);
-          } else {
-            setUrlParams((currentState) => ({
-              offset: currentState.offset - 20,
-              limit: currentState.limit,
-            }));
-            setUrl(
-              `https://pokeapi.co/api/v2/pokemon/?offset=${urlParams.offset}&limit=${urlParams.limit}`
-            );
-          }
+          // console.log('offset previous before update???', urlParams.offset);
+          setUrlParams((currentState) => ({
+            offset: currentState.offset - 20,
+            limit: 20,
+          }));
+          setUrl(
+            `https://pokeapi.co/api/v2/pokemon/?offset=${
+              urlParams.offset - 20
+            }&limit=${urlParams.limit}`
+          );
         }}
         nextOnClickFunction={() => {
-          if (data.next) {
-            setUrl(data.next);
-          } else {
-            setUrlParams((currentState) => ({
-              offset: currentState.offset + 20,
-              limit: currentState.limit,
-            }));
-            setUrl(
-              `https://pokeapi.co/api/v2/pokemon/?offset=${urlParams.offset}&limit=${urlParams.limit}`
-            );
-          }
+          // console.log('offset next before update???', urlParams.offset);
+          setUrlParams((currentState) => ({
+            offset: currentState.offset + 20,
+            limit: 20,
+          }));
+          setUrl(
+            `https://pokeapi.co/api/v2/pokemon/?offset=${
+              urlParams.offset + 20
+            }&limit=${urlParams.limit}`
+          );
         }}
         disablePrevious={disablePrevious}
         disableNext={disableNext}

@@ -9,6 +9,10 @@ export const useFetch = (url) => {
   useEffect(() => {
     let mounted = true;
     const abortController = new AbortController();
+    const cleanup = () => {
+      mounted = false;
+      abortController.abort();
+    };
 
     setCurrentState((state) => ({
       data: state.data,
@@ -31,10 +35,6 @@ export const useFetch = (url) => {
       })();
     }
 
-    const cleanup = () => {
-      mounted = false;
-      abortController.abort();
-    };
     return cleanup;
   }, [url]);
 
