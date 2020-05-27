@@ -26,18 +26,17 @@ function App() {
     disableNext = false;
 
   if (isLoading === false) {
-    // console.log('url::', url);
-    // console.log('next::', data.next);
-    // console.log('previous::', data.previous);
+    console.log('url::', url);
+    console.log('next::', data.next);
+    console.log('previous::', data.previous);
     if (fieldValue !== '') {
       cardGrid = (
-
-          <div className='container-box'>
-            <CardBox
-              className='pokemon-item'
-              source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
-            />
-          </div>
+        <div className='container-box'>
+          <CardBox
+            className='pokemon-item'
+            source={'https://pokeapi.co/api/v2/pokemon/' + fieldValue}
+          />
+        </div>
       );
     } else {
       cardGrid = <CardsList pokemons={data.results} />;
