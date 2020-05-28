@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Spinner from 'react-bootstrap/Spinner';
 import './Components.css';
 import { useFetch } from '../hooks/useFetch';
 import { useSpring, animated, useTransition } from 'react-spring';
 import { NoPokemonCardBox } from './NoPokemonCardBox';
+import { SearchingPokemondCardBox } from './SearchingPokemonCardBox';
 
 const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source.toLowerCase());
@@ -109,33 +109,7 @@ const CardBox = ({ source }) => {
       cardBoxItem = <NoPokemonCardBox message={data} />;
     }
   } else {
-    cardBoxItem = (
-      <Card className='flex-child'>
-        {/* <Card.Img
-            variant='top'
-            src={process.env.PUBLIC_URL + '/logo512.png'}
-            style={{
-              width: '96px',
-              height: '96px',
-              marginTop: '1.25rem',
-              transition: 'all 300ms ease-in-out 300ms',
-            }}
-          /> */}
-        <div
-          style={{
-            width: '96px',
-            height: '96px',
-            transition: 'all 300ms ease-in-out 300ms',
-          }}
-          className='container-box'
-        >
-          <Spinner animation='border' variant='danger' />
-        </div>
-        <Card.Body>
-          <Card.Title>Searching for Pokémon</Card.Title>
-        </Card.Body>
-      </Card>
-    );
+    cardBoxItem = <SearchingPokemondCardBox />;
   }
 
   return (
