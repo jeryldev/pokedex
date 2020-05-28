@@ -11,8 +11,6 @@ export const NoPokemonCardBox = ({ message }) => {
         style={{
           width: '96px',
           height: '96px',
-          marginTop: '1.25rem',
-          transition: 'all 300ms ease-in-out 300ms',
         }}
       />
       <Card.Body>

@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './Components.css';
 import { useFetch } from '../hooks/useFetch';
-import { useSpring, animated, useTransition } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import { NoPokemonCardBox } from './NoPokemonCardBox';
 import { SearchingPokemondCardBox } from './SearchingPokemonCardBox';
-// import useInterval from 'react-useinterval';
 
 const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source.toLowerCase());
@@ -14,16 +13,8 @@ const CardBox = ({ source }) => {
     opacity: 1,
     from: { opacity: 0 },
   });
-  const [toggle, set] = useState(false);
-  const transitions = useTransition(toggle, null, {
-    from: { position: 'absolute', opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-  });
 
   let cardBoxItem;
-
-  // useInterval(() => set(true), 1000);
 
   if (isLoading === false) {
     try {
