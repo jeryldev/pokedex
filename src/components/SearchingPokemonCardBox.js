@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-
 import Spinner from 'react-bootstrap/Spinner';
 
 export const SearchingPokemondCardBox = () => {
@@ -10,7 +9,6 @@ export const SearchingPokemondCardBox = () => {
         style={{
           width: '96px',
           height: '96px',
-          transition: 'all 300ms ease-in-out 300ms',
         }}
         className='container-box'
       >
