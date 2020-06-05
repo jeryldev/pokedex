@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './Components.css';
-import { useFetch } from '../hooks/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 import { useSpring, animated } from 'react-spring';
-import { NoPokemonCardBox } from './NoPokemonCardBox';
-import { SearchingPokemondCardBox } from './SearchingPokemonCardBox';
+import { NoPokemonCardBox } from '../NoPokemonCardBox';
+import { SearchingPokemondCardBox } from '../SearchingPokemonCardBox';
 
 const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source.toLowerCase());
