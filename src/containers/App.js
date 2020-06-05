@@ -7,9 +7,9 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import CardsList from '../components/CardBoxList/CardBoxList';
 import CardBox from '../components/CardBox/CardBox';
 
-import { JumbotronSection } from '../components/JumbotronSection/JumbotronSection';
-import { SearchBox } from '../components/SearchBox/SearchBox';
-import { PaginationSection } from '../components/PaginationSection/PaginationSection';
+import JumbotronSection from '../components/JumbotronSection/JumbotronSection';
+import SearchBox from '../components/SearchBox/SearchBox';
+import PaginationSection from '../components/PaginationSection/PaginationSection';
 
 function App() {
   // const [urlParams, setUrlParams] = useState({ offset: 0, limit: 20 });

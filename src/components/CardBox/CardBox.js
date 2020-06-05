@@ -3,8 +3,8 @@ import Card from 'react-bootstrap/Card';
 import './CardBox.css';
 import { useFetch } from '../../hooks/useFetch';
 import { useSpring, animated } from 'react-spring';
-import { NoPokemonCardBox } from '../NoPokemonCardBox/NoPokemonCardBox';
-import { SearchingPokemondCardBox } from '../SearchingPokemonCardBox/SearchingPokemonCardBox';
+import NoPokemonCardBox from '../NoPokemonCardBox/NoPokemonCardBox';
+import SearchingPokemonCardBox from '../SearchingPokemonCardBox/SearchingPokemonCardBox';
 
 const CardBox = ({ source }) => {
   let { data, isLoading } = useFetch(source.toLowerCase());
@@ -62,7 +62,7 @@ const CardBox = ({ source }) => {
       );
     }
   } else {
-    cardBoxItem = <SearchingPokemondCardBox />;
+    cardBoxItem = <SearchingPokemonCardBox />;
   }
 
   return (
