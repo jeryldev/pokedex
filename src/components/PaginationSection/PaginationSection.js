@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-export const PaginationSection = ({
+const PaginationSection = ({
   previousOnClickFunction,
   nextOnClickFunction,
   disablePrevious,
@@ -36,3 +36,5 @@ export const PaginationSection = ({
     </div>
   );
 };
+
+export default PaginationSection;

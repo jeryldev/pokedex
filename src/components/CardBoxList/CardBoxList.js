@@ -1,6 +1,5 @@
 import React from 'react';
-import CardBox from './CardBox';
-import './Components.css';
+import CardBox from '../CardBox/CardBox';
 
 const CardBoxList = ({ pokemons }) => {
   return (

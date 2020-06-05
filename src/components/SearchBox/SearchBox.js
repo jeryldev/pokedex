@@ -2,7 +2,7 @@ import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
-export const SearchBox = ({ searchValue, searchFunction }) => {
+const SearchBox = ({ searchValue, searchFunction }) => {
   return (
     <div style={{ marginLeft: '15%', marginRight: '15%' }}>
       <InputGroup className='mb-3' size='lg'>
@@ -34,3 +34,5 @@ export const SearchBox = ({ searchValue, searchFunction }) => {
     </div>
   );
 };
+
+export default SearchBox;

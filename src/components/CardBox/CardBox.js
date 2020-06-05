@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import './Components.css';
+import './CardBox.css';
 import { useFetch } from '../../hooks/useFetch';
 import { useSpring, animated } from 'react-spring';
 import { NoPokemonCardBox } from '../NoPokemonCardBox/NoPokemonCardBox';

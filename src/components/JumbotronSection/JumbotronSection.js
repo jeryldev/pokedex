@@ -2,7 +2,7 @@ import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 
-export const JumbotronSection = () => {
+const JumbotronSection = () => {
   return (
     <div>
       {' '}
@@ -74,3 +74,5 @@ export const JumbotronSection = () => {
     </div>
   );
 };
+
+export default JumbotronSection;

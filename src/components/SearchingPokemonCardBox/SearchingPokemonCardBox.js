@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 
-export const SearchingPokemonCardBox = () => {
+const SearchingPokemonCardBox = () => {
   return (
     <Card className='flex-child'>
       <div
@@ -20,3 +20,5 @@ export const SearchingPokemonCardBox = () => {
     </Card>
   );
 };
+
+export default SearchingPokemonCardBox;

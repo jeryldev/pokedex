@@ -20,3 +20,5 @@ export const NoPokemonCardBox = ({ message }) => {
     </Card>
   );
 };
+
+export default NoPokemonCardBox;
